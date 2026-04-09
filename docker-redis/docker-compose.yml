@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"
+    restart: always
+    volumes:
+      - ./redis.conf:/usr/local/bin/redis.conf  # 挂载配置文件
+      - ./data:/data                                # 挂载数据目录
+    command: redis-server /usr/local/bin/redis.conf # 指定使用该配置文件启动
