@@ -28,6 +28,11 @@ public class UserController {
         return userService.updateUser(user);
     }
 
+    @PostMapping("/user/save")
+    public boolean saveUser(@RequestBody User user) {
+        return userService.saveUser(user);
+    }
+
     @PostMapping("/user/{id}")
     public boolean deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);
